@@ -1,65 +1,54 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+// bot greets
+// user types
+// filter to keywords to give response
+// watch for user input before returning answer
+// cancel return if user begins typing again within timeframe
+// add buffer ... rather than returning instant answer
+// track response by id if it has already been used in session
+// last resort response when all responses have been used and reset
+import { useState } from 'react';
+import styles from './index.module.css';
+
+const botResponses = {
+  random: [
+    'Yeah, you do suck!',
+    'Sometimes you may need a platypus to eat a giraffe',
+    'Do you want my advice?',
+  ],
+  general: ['Yeah, I fully agree!', 'Just do it!'],
+  generalKey: ["The sky is what's up!"],
+};
+
+const messages = [
+  'Hey JohnBot, how are you?',
+  "It smells like success in here, doesn't it?",
+  'what is it',
+];
 
 export default function Home() {
+  const [chatInput, setChatInput] = useState('');
+
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
+    <div className={styles.mainContainer}>
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
+        {messages.map((x) => (
+          <div className={styles.chatItemWrapper}>
+            <p className={styles.chatItem}>{x}</p>
+          </div>
+        ))}
       </main>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
+      <div className={styles.typeBox}>
+        <form onSubmit={() => {}}>
+          <input
+            type="text"
+            placeholder="Talk to me."
+            value={chatInput}
+            onChange={(e) => setChatInput(e.target.value)}
+          />
+          <button type="submit">Send</button>
+        </form>
+      </div>
     </div>
-  )
+  );
 }
