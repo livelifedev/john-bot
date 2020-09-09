@@ -1,0 +1,56 @@
+.mainContainer {
+  position: relative;
+  height: 100vh;
+  max-width: 45rem;
+  margin: auto;
+  background-color: #a2aebb;
+}
+
+.main {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.chatItemWrapper {
+  margin: 1rem 0.2rem;
+}
+
+.chatItem {
+  display: inline-block;
+  margin: 0;
+  background-color: #071013;
+  max-width: 90%;
+  padding: 2rem 2rem 2rem 1rem;
+  border-radius: 8px;
+}
+
+.typeBox {
+  position: absolute;
+  bottom: 0;
+  width: 95%;
+  margin: 0 2.5%;
+  padding: 1.2rem 0;
+  border-top: 1px solid #071013;
+}
+
+.typeBox form {
+  display: flex;
+  padding: 0.2rem;
+  background-color: #071013;
+  border-radius: 8px;
+}
+
+.typeBox input,
+.typeBox button {
+  padding: 0.5rem;
+}
+
+.typeBox input {
+  flex: 1;
+  background-color: transparent;
+  border: none;
+}
+
+.typeBox ::placeholder {
+  color: #dfe0e2;
+}
