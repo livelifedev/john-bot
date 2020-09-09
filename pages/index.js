@@ -6,6 +6,7 @@ export default function Home() {
     <main className={styles.main}>
       <Avatar className={styles.avatar} />
       <h1 className={styles.title}>John-Bot</h1>
+      <p>J-Bot for short. Life hacker. Here at your service.</p>
     </main>
   );
 }
